@@ -10,7 +10,7 @@ class DetailsModel(models.Model):
     first_name = models.CharField( max_length=50)
     last_name = models.CharField( max_length=50)
     age = models.IntegerField(default=0)
-    address = models.TextField(null=False)
+    address = models.CharField(max_length=100)
     gmail = models.EmailField(max_length=50, unique=True)
     phone = models.BigIntegerField(default=0)
     pub_date = models.DateTimeField(default=timezone.now)
