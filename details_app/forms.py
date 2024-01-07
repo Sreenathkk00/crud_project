@@ -1,8 +1,9 @@
 from django import forms
+
 from .models import DetailsModel
 
 class DetailForm(forms.ModelForm):
-    print(dir(forms.widgets))
+    #print(dir(forms.widgets))
     class Meta:
         model = DetailsModel
         fields = ['first_name','last_name','age','address','gmail','phone'] 

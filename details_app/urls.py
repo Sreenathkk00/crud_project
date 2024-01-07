@@ -20,8 +20,8 @@ from details_app import views
 from .views import DetailListview,FormView
 
 urlpatterns = [
-    path('',views.fv_crud),
-    path('detail/',DetailListview.as_view(),name='detail_list'),
+    
+    path('',DetailListview.as_view(),name='detail_list'),
     path('form/',FormView.as_view(),name='form_page'),
 
 ]

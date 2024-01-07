@@ -4,8 +4,7 @@ from django.views.generic import ListView,CreateView
 from .models import DetailsModel
 from .forms import DetailForm
 # Create your views here.
-def fv_crud(request):
-    return HttpResponse("hello")
+
 
 class DetailListview(ListView):
     model = DetailsModel
