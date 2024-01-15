@@ -73,7 +73,9 @@
                 <li>ADDRESS : {{ item.address}}</li>
                 <li>EMAIL   : {{ item.gmail}}</li>
                 </ul>
-                <a href="#" class="btn btn-info">Go somewhere</a>
+                <!--Redirect to update form page-->
+                <a href="{% url 'edits'   pk=item.pk %}" class="btn btn-info">Edit</a>
+              
               </div>
             </div>           
             {% endfor %}

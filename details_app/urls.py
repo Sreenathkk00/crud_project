@@ -23,5 +23,9 @@ urlpatterns = [
     
     path('',DetailListview.as_view(),name='detail_list'),
     path('form/',FormView.as_view(),name='form_page'),
+    path('edits/<int:pk>/',views.edit,name='edits'),
+    
+    
+    
 
 ]

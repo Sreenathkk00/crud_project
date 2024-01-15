@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form method='post' action="">
+{% csrf_token %}
+
+{{context.as_p}}
+<button type='submit' class="btn btn-info">update</button>
+</form>
+
+{% endblock content %}
