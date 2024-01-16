@@ -22,15 +22,16 @@ class FormView(CreateView):
     template_name = 'form.html'
     success_url ='/' 
 
-# update the details with selected profile (fuctionalViews)
+
+
+# update the details with selected profile (class based view)
+class EditView(UpdateView):
+    model= DetailsModel
+    form_class = DetailForm
+    pk_url_kwarg = 'pk'
+    template_name = 'edit.html'
+    success_url = '/'
     
-def edit(request,pk):
-    frm = DetailsModel.objects.get(pk=pk)
-    if request.POST:
-       context=DetailForm(request.POST ,instance=frm)
-       if context.is_valid():
-            context.save()
-            return render(request, 'update.html')
-    else:
-        context = DetailForm(instance=frm)
-    return render(request,'edit.html',{'context':context,'frm':frm})
+
+print(dir(UpdateView))
+
