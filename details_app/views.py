@@ -30,8 +30,13 @@ class EditView(UpdateView):
     form_class = DetailForm
     pk_url_kwarg = 'pk'
     template_name = 'edit.html'
-    success_url = '/'
+    success_url = '/update_view'
     
+# update_view will display the update.html page
+class Update_View(ListView):
+    model = DetailsModel
+    template_name = 'update.html'
+    context_object_name = 'update_view'
 
-print(dir(UpdateView))
+#print(dir(UpdateView))
 
