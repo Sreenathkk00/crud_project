@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView,CreateView,UpdateView
+from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 from django.views import generic
 from .models import DetailsModel
 from .forms import DetailForm
@@ -37,6 +37,13 @@ class Update_View(ListView):
     model = DetailsModel
     template_name = 'update.html'
     context_object_name = 'update_view'
+# Delete profile
+class Delete_View(DeleteView):
+    model = DetailsModel
+    pk_url_kwarg ='pk'
+    template_name = 'delete.html'   
+    success_url = '/'
 
-#print(dir(UpdateView))
+
+
 

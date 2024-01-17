@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Conform & Delete</h2>
+<form method="post" novalidate>
+    {% csrf_token %}
+    
+    <button type="submit" class="btn btn-inf">delete</button>
+    
+</form>
+
+
+{% endblock content %}

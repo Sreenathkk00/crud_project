@@ -17,14 +17,15 @@ Including another URLconf
 
 from django.urls import path
 from details_app import views
-from .views import DetailListview,FormView,EditView,Update_View
+from .views import DetailListview,FormView,EditView,Update_View,Delete_View
 
 urlpatterns = [
     
     path('',DetailListview.as_view(),name='detail_list'),
     path('form/',FormView.as_view(),name='form_page'),
     path('edits/<int:pk>/',EditView.as_view(),name='edits'),
-    path('update_view/',Update_View.as_view(),name='update_viwe')
+    path('update_view/',Update_View.as_view(),name='update_viwe'),
+    path('delete_view/<int:pk>/',Delete_View.as_view(),name='delete')
     
     
     
