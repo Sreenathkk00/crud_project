@@ -5,7 +5,7 @@
 <div class="container pt-5">
     <h1> Create New profile</h1>
     <br/>
-    <form method="post" novalidate>
+    <form method="post" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {% for field in form.visible_fields %}
             <div class="form-group">

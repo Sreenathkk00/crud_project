@@ -14,6 +14,7 @@ class DetailsModel(models.Model):
     gmail = models.EmailField(max_length=50, unique=True)
     phone = models.BigIntegerField(default=0)
     pub_date = models.DateTimeField(default=timezone.now)
+    images = models.ImageField(upload_to='images/',null=True,blank=True)
 
     
     def __str__(self):

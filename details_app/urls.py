@@ -18,6 +18,8 @@ Including another URLconf
 from django.urls import path
 from details_app import views
 from .views import DetailListview,FormView,EditView,Update_View,Delete_View
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     
@@ -26,8 +28,6 @@ urlpatterns = [
     path('edits/<int:pk>/',EditView.as_view(),name='edits'),
     path('update_view/',Update_View.as_view(),name='update_viwe'),
     path('delete_view/<int:pk>/',Delete_View.as_view(),name='delete')
-    
-    
-    
-
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
