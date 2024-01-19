@@ -1,6 +1,7 @@
 <!doctype html>
 {% load static%}
 <html lang="en">
+  
   <style>
     .card-img-top {
     
@@ -67,22 +68,41 @@
       </nav>
     </header>
 
+ <!-- Second div content -->
     <div class=" mt-5 pt-5 row d-flex justify-content-center">
-        <!-- Second div content -->
+       
         
             {% for item in Details_List %}
             <div class="card col-sm-6 " style="width: 18rem; ">
               <img src="{{ item.images.url }}" class="card-img-top" alt="..." >
               <div class="card-body mb-4">
                 <h5 class="card-title">{{ item.first_name}} {{ item.last_name}}</h5>
-                <ul>
-                <li>NAME    : {{ item.age}}</li>
-                <li>PHONE   : {{ item.phone}}</li>
-                <li>ADDRESS : {{ item.address}}</li>
-                <li>EMAIL   : {{ item.gmail}}</li>
-                </ul>
+
+                <!--text input data is organized into a table structure -->
+                <table>
+                 
+                  <tbody>
+                      <tr>
+                          <td>NAME</td>
+                          <td>{{ item.age }}</td>
+                      </tr>
+                      <tr>
+                          <td>PHONE</td>
+                          <td>{{ item.phone }}</td>
+                      </tr>
+                      <tr>
+                          <td>ADDRESS</td>
+                          <td>{{ item.address }}</td>
+                      </tr>
+                      <tr>
+                          <td>EMAIL</td>
+                          <td>{{ item.gmail }}</td>
+                      </tr>
+                  </tbody>
+              </table>
                 <!--Redirect to update form page-->
                 <a href="{% url 'edits'   pk=item.pk %}" class="btn btn-info">Edit</a>
+                <!--Redirect to delete.html page-->
                 <a href="{% url 'delete'   pk=item.pk %}" class="btn btn-info">Delete</a>
               
               </div>
