@@ -14,4 +14,6 @@ class DetailForm(forms.ModelForm):
     address = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     gmail = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
     phone = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+
+    images = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class':'form-control'}))
     
