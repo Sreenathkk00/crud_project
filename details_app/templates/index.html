@@ -73,7 +73,7 @@
        
         
             {% for item in Details_List %}
-            <div class="card col-sm-6 " style="width: 18rem; ">
+            <div class="card col-sm-6 " style="width: 18rem; margin: 10px; ">
               <img src="{{ item.images.url }}" class="card-img-top" alt="..." >
               <div class="card-body mb-4">
                 <h5 class="card-title">{{ item.first_name}} {{ item.last_name}}</h5>
@@ -84,19 +84,19 @@
                   <tbody>
                       <tr>
                           <td>NAME</td>
-                          <td>{{ item.age }}</td>
+                          <td>:  {{ item.age }}</td>
                       </tr>
                       <tr>
                           <td>PHONE</td>
-                          <td>{{ item.phone }}</td>
+                          <td>: {{ item.phone }}</td>
                       </tr>
                       <tr>
                           <td>ADDRESS</td>
-                          <td>{{ item.address }}</td>
+                          <td>: {{ item.address }}</td>
                       </tr>
                       <tr>
                           <td>EMAIL</td>
-                          <td>{{ item.gmail }}</td>
+                          <td>: {{ item.gmail }}</td>
                       </tr>
                   </tbody>
               </table>
