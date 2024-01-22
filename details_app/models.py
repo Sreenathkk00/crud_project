@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils import timezone
+import os
+from django.dispatch import receiver
+from django.db.models.signals import pre_delete
 
 # Create your models here.
 
@@ -20,4 +23,11 @@ class DetailsModel(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+@receiver(pre_delete, sender=DetailsModel)
+def delete_profile_image(sender, instance, **kwargs):
+    # Delete the associated image file when the profile is deleted
+    if instance.images:
+        # Use instance.images.path to get the absolute file path
+        if os.path.isfile(instance.images.path):
+            os.remove(instance.images.path)
     
