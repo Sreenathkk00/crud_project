@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<form method="post" novalidate >
+<form method="post" enctype="multipart/form-data" novalidate >
     {% csrf_token %}
     {% for field in form.visible_fields %} <!-- is used to iterate over all visible fields in the form.-->
         <div class="form-group">
