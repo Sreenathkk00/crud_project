@@ -22,10 +22,11 @@ class DetailsModel(models.Model):
     
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
+    
+ # Delete the associated image file when the profile is deleted
 @receiver(pre_delete, sender=DetailsModel)
 def delete_profile_image(sender, instance, **kwargs):
-    # Delete the associated image file when the profile is deleted
+   
     if instance.images:
         # Use instance.images.path to get the absolute file path
         if os.path.isfile(instance.images.path):

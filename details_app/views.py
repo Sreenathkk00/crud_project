@@ -1,7 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
-from django.views import generic
 from .models import DetailsModel
 from .forms import DetailForm
 import os
@@ -37,37 +34,33 @@ class EditView(UpdateView):
     form_class = DetailForm
     pk_url_kwarg = 'pk'
     template_name = 'edit.html'
-    #success_url = '/update_view'
     success_url = reverse_lazy('update_view')  # Adjust the URL name
+                                              # reverse_lazy: This is a function provided by Django that reverses a URL pattern based on its name.
 
     def form_valid(self, form):
         # Get the current instance
         self.object = self.get_object()
 
         # Handle image update
-        new_image = form.cleaned_data.get('images')
+        if form.has_changed():
+            # Handle image update
+            new_image = form.cleaned_data.get('images')
 
-        # Check if a new image is provided
-        if new_image:
-            # Delete the old image if it exists
-            if self.object.images and self.object.images.path:
-                old_image_path = self.object.images.path
-                if os.path.exists(old_image_path):
-                    os.remove(old_image_path)
+            # Check if a new image is provided
+            if new_image:
+                # Delete the old image if it exists
+                if self.object.images and self.object.images.path:
+                    old_image_path = self.object.images.path
+                    if os.path.exists(old_image_path):
+                        os.remove(old_image_path)
 
-            # Update the images field of the DetailsModel instance with the new image
-            self.object.images = new_image
-            self.object.save()
+                # Update the images field of the DetailsModel instance with the new image
+                self.object.images = new_image
 
-        return super().form_valid(form)
-            
-
-    
-
-            
-
+        # Save the updated instance
+        self.object.save()
         
-
+        return super().form_valid(form)
     
 # update_view will display the update.html page
 class Update_View(ListView):

@@ -15,5 +15,6 @@ class DetailForm(forms.ModelForm):
     gmail = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
     phone = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
 
-    images = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class':'form-control'}))
-    
+    images = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class':'form-control'}), required=False)
+                                                                                              #Ensure that the 
+                                                                                              #DetailForm allows the images field to be cleared.
