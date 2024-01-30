@@ -9,6 +9,7 @@
       height: 300px;
       border-radius: 40px ;
   }
+  
   </style>
     
   <head>
@@ -26,7 +27,7 @@
         <div class="container-fluid ">
            
           <a class="navbar-brand" href="#">
-            <img src="https://media.gettyimages.com/id/1316590411/vector/m-logo-design.jpg?s=612x612&w=0&k=20&c=8R9ag2MSPggFccACrOqO39PufUN3-jnH8ARTgfZ6V9g=" width='40'>
+            <img src="{% static 'images/bulllogo.png' %}" width='40'>
             <b>Crud</b>it</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -69,42 +70,56 @@
     </header>
 
  <!-- Second div content -->
-    <div class=" mt-5 pt-5 row d-flex justify-content-center">
-       
-        
-            {% for item in Details_List %}
-            <div class="card col-sm-6 " style="width: 18rem; margin: 10px; ">
-              <img src="{% if item.images %}{{ item.images.url }}{% else %}{% static 'images/placeholder.jpg' %}{% endif %}" class="card-img-top" alt="..." >
-              <div class="card-body mb-4">
-                <h5 class="card-title">{{ item.first_name}} {{ item.last_name}}</h5>
+ <div class="mt-5 pt-5 row d-flex justify-content-center">
+  {% for item in Details_List %}
+  <div class="card col-sm-6" style="width: 18rem; margin: 10px;">
+      <img src="{% if item.images %}{{ item.images.url }}{% else %}{% static 'images/placeholder.jpg' %}{% endif %}" class="card-img-top" alt="...">
+      <div class="card-body mb-4">
+          <h5 class="card-title">{{ item.first_name }} {{ item.last_name }}</h5>
 
-                <!--text input data is organized into a table structure -->
-                <table>
-                 
-                  <tbody>
-                      <tr>
-                          <td>AGE</td>
-                          <td>:  {{ item.age }}</td>
-                      </tr>
-                      <tr>
-                          <td>PHONE</td>
-                          <td>: {{ item.phone }}</td>
-                      </tr>
-                      <tr>
-                          <td>ADDRESS</td>
-                          <td>: {{ item.address }}</td>
-                      </tr>
-                      <tr>
-                          <td>EMAIL</td>
-                          <td>: {{ item.gmail }}</td>
-                      </tr>
-                  </tbody>
-              </table>
+         
+                  
+
+                  <table>
+                    <tbody>
+                        <tr>
+                            <td>AGE</td>
+                            <td>: {{ item.age }}</td>
+                        </tr>
+                        <tr>
+                            <td>PHONE</td>
+                            <td>: {{ item.phone }}</td>
+                        </tr>
+                        <tr>
+                            <td>ADDRESS</td>
+                            <td>: {{ item.address }}</td>
+                        </tr>
+                        <tr>
+                            <td>EMAIL</td>
+                            <td>: {{ item.gmail }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+              </ul>
+          
+           <!-- Dropdown inside the card -->
+           <ul class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <b>Advanced</b>
+            </a>
+            <ul class="dropdown-menu text-center"  style="top: auto; bottom: 0;">
+
+
                 <!--Redirect to update form page-->
-                <a href="{% url 'edits'   pk=item.pk %}" class="btn btn-info">Edit</a>
+                <tr>
+                <td><a href="{% url 'edits'   pk=item.pk %}" class="btn btn-info">Edit</a></td>
                 <!--Redirect to delete.html page-->
-                <a href="{% url 'delete'   pk=item.pk %}" class="btn btn-info">Delete</a>
-              
+                 <td><a href="{% url 'delete'   pk=item.pk %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            </ul>
+                <!-- End of dropdown -->
+              </ul>
               </div>
             </div>           
             {% endfor %}
