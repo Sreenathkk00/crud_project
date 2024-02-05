@@ -23,6 +23,7 @@
   </head>
   <body>
     <header>
+      
     <nav class="navbar bg-info  fixed-top ">
         <div class="container-fluid ">
            
@@ -45,38 +46,32 @@
                 <li class="nav-item">
                   <a class="nav-link active" href="{% url 'form_page' %}">Create</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                
+                   
                   </ul>
                 </li>
               </ul>
-              <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              
             </div>
           </div>
         </div>
       </nav>
+ 
     </header>
+     <!--Create Button-->
+
     
     
 
  <!-- Second div content -->
- <div class="mt-5 pt-5 row d-flex justify-content-center">
-  <!--Create Button-->
-  <div class="container mt-3  d-flex justify-content-end pr-3 ">
-    <a class="btn btn-outline-secondary" href="{% url 'form_page' %}">Create</a>
+ <div class="mt-5 pt-5 row d-flex justify-content-center bg-body-secondary">
+  <div class="container mt-1  d-flex justify-content-end pr-3 ">
+    {% if request.path == "/" %}
+              <a class="btn btn-outline-secondary" href="{% url 'form_page' %}">Create</a>
+          {% endif %}
+    
   </div>
+  
   {% for item in Details_List %}
   <div class="card col-sm-6" style="width: 18rem; margin: 10px;">
       <img src="{% if item.images %}{{ item.images.url }}{% else %}{% static 'images/placeholder.jpg' %}{% endif %}" class="card-img-top" alt="...">
@@ -119,9 +114,9 @@
 
                 <!--Redirect to update form page-->
                 <tr>
-                <td><a href="{% url 'edits'   pk=item.pk %}" class="btn btn-info">Edit</a></td>
+                <td><a href="{% url 'edits'   pk=item.pk %}" class="btn btn-outline-info">Edit</a></td>
                 <!--Redirect to delete.html page-->
-                 <td><a href="{% url 'delete'   pk=item.pk %}" class="btn btn-danger">Delete</a></td>
+                 <td><a href="{% url 'delete'   pk=item.pk %}" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
             </ul>
                 <!-- End of dropdown -->
