@@ -1,0 +1,61 @@
+# Python-related
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django-related
+*.log
+*.pot
+*.py[cod]
+*.db
+*.sqlite3
+/static/
+/media/
+/*.swp
+
+# MacOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
+ehthumbs.db
+
+# IDEs and Text Editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Other system files
+*.bak
+*.swp
+
+# Sensitive files (if you don't want to track them)
+.env
+*.env
+
+# Python egg and distribution files
+*.egg
+*.egg-info
+dist/
+build/
+*.tar.gz
+
+# Virtual environment directories
+venv/
+env/
+ENV/
+crud_venv
+
+# Ignore migration files
+*/migrations/*.py
+!*/migrations/__init__.py
