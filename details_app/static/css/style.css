@@ -1,3 +1,474 @@
-h1{
-    color: rgb(0, 255, 89);
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(233, 236, 239);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+   margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar */
+  .navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    color: #218838;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    color: white;
+    font-weight: 500;
+  }
+  
+  .nav-link:hover {
+    color: #f8f9fa;
+    text-decoration: underline;
+  }
+  
+  .offcanvas-body {
+    background-color: #e9ecef;
+  }
+  
+  .offcanvas-title {
+    font-size: 1.5rem;
+    color: #17a2b8;
+  }
+  .create a:hover i {
+    color: #e9ecef;
+}
+
+  /* Card Styles */
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card-body {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #17a2b8;
+  }
+  
+ .card img{
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    margin-top: 10px;
+ }
+  
+  .table td {
+    font-size: 0.875rem;
+    color: #6c757d;
+    padding: 2px 5px;
+  }
+  
+  /* Buttons */
+  .btn-outline-secondary {
+    color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .btn-outline-info {
+    color: #117a8b;
+    border-color: #117a8b;
+  }
+  
+  .btn-outline-info:hover {
+    background-color: #117a8b;
+    color: white;
+  }
+  
+  .btn-outline-danger {
+    color: #c82333;
+    border-color: #c82333;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #c82333;
+    color: white;
+  }
+  
+  
+/*! Custom styles for Edit Profile page */
+.edit {
+    background-color: #f9f9f9; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+/* Styling the title of the page */
+.edit h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.edit form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling form groups */
+.edit .form-group {
+    margin-bottom: 15px;
+}
+
+/* Styling labels */
+.edit label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Styling input fields */
+.edit input[type="text"],
+.edit input[type="email"],
+.edit input[type="file"],
+.edit textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Add focus styles for form fields */
+.edit input[type="text"]:focus,
+.edit input[type="email"]:focus,
+.edit input[type="file"]:focus,
+.edit textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Hide image links */
+a[href^="/media/images/"] {
+    display: none;
+}
+
+/* Error message styling */
+.edit .help-block {
+    font-size: 0.875rem;
+    color: red;
+    margin-top: 5px;
+}
+
+/* Styling for image preview */
+.edit img.img-thumbnail {
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Button styles */
+.edit .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Submit Button */
+.edit .btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.edit .btn-success:hover {
+    background-color: #218838;
+}
+
+/* Cancel Button */
+.edit .btn-default {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    color: #333;
+    margin-left: 10px;
+}
+
+.edit .btn-default:hover {
+    background-color: #e2e6ea;
+}
+
+/*! General styling for the success page */
+.success-message-container {
+    background-color: #e9f7ef; /* Light green background for success */
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.success-message-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #28a745; /* Green color for success */
+    margin-bottom: 30px;
+}
+
+/* Button Styles */
+.success-message-container .btn {
+    font-size: 1rem;
+    padding: 12px 25px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Success button */
+.success-message-container .btn-success {
+    background-color: #28a745;
+    border: none;
+    color: white;
+}
+
+.success-message-container .btn-success:hover {
+    background-color: #218838;
+}
+
+
+/*! General styling for the delete confirmation page */
+.delete {
+    background-color: #f8d7da; /* Light red background indicating danger */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Heading style */
+.delete h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #dc3545; /* Red color for the confirmation */
+    margin-bottom: 30px;
+}
+
+/* Button styles */
+.delete .btn {
+    font-size: 1rem;
+    padding: 12px 25px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Delete button (danger) */
+.delete .btn-outline-danger {
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    background-color: transparent;
+}
+
+.delete .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Cancel button (secondary) */
+.delete .btn-outline-secondary {
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.delete .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/*! General container styling */
+.create-profile-container {
+    background-color: #f8f9fa;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    max-height: 800px;
+    margin: auto;
+    
+}
+
+/* Title styling */
+.create-profile-container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #28a745; 
+    margin-bottom: 30px;
+}
+
+/* Form Group Styling */
+.create-profile-container .form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+.create-profile-container label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Field Styling */
+.create-profile-container input[type="text"],
+.create-profile-container input[type="email"],
+.create-profile-container input[type="password"],
+.create-profile-container input[type="file"],
+.create-profile-container select,
+.create-profile-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Field focus styles */
+.create-profile-container input[type="text"]:focus,
+.create-profile-container input[type="email"]:focus,
+.create-profile-container input[type="password"]:focus,
+.create-profile-container input[type="file"]:focus,
+.create-profile-container select:focus,
+.create-profile-container textarea:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Error message styling */
+.create-profile-container .help-block {
+    font-size: 0.875rem;
+    color: red;
+    margin-top: 5px;
+}
+
+/* Button Styling */
+.create-profile-container .btn {
+    font-size: 1rem;
+    padding: 12px 25px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Submit button */
+.create-profile-container .btn-success {
+    background-color: #28a745;
+    border: none;
+    color: white;
+}
+
+.create-profile-container .btn-success:hover {
+    background-color: #218838;
+}
+
+/* Cancel button */
+.create-profile-container .btn-outline-secondary {
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.create-profile-container .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* create */
+    .create-profile-container {
+        padding: 30px;
+    }
+
+    .create-profile-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .create-profile-container .form-group {
+        margin-bottom: 15px;
+    }
+
+    .create-profile-container .btn {
+        padding: 10px 20px;
+    }
+    /* Edit */
+    .edit {
+        padding: 20px;
+    }
+
+    .edit .form-group {
+        margin-bottom: 10px;
+    }
+
+    .edit .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+    /* delete */
+    .delete {
+        padding: 30px;
+    }
+
+    .delete h2 {
+        font-size: 1.5rem;
+    }
+
+    .delete .btn {
+        padding: 10px 20px;
+    }
+    /* delete confirm */
+    .success-message-container {
+        padding: 30px;
+    }
+
+    .success-message-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .success-message-container .btn {
+        padding: 10px 20px;
+    }
 }

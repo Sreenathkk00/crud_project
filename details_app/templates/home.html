@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+ <!-- Content Section -->
+ <div class="row d-flex justify-content-start bg-body-secondary">
+     {% if Details_List %}
+     <!-- Create Button -->
+    <div class="create col-lg-12  p-3 d-flex justify-content-end">
+        <a class="btn btn-outline-secondary" href="{% url 'Create_new' %}">Create <i class="fa-solid fa-plus" style="color: #4db2ff;"></i></a>
+    </div>
+    <!-- Details Cards -->
+    {% for item in Details_List %}
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card p-2 mb-4 " style="max-width: 540px;">
+            <div class="row g-0 ">
+                <!-- Image Section -->
+                <div class="col-md-4">
+                    <img src="{% if item.images %}{{ item.images.url }}{% else %}{% static 'images/placeholder.jpg' %}{% endif %}" class="img-fluid rounded-start" alt="Item Image">
+                </div>
+                <!-- Content Section -->
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.first_name }} {{ item.last_name }}</h5>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>AGE</strong></td>
+                                    <td>: {{ item.age }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PHONE</strong></td>
+                                    <td>: {{ item.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ADDRESS</strong></td>
+                                    <td>: {{ item.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>EMAIL</strong></td>
+                                    <td>: {{ item.gmail }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="dropdown mt-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Advanced
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'edits' pk=item.pk %}" class="dropdown-item">Edit</a></li>
+                                <li><a href="{% url 'delete' pk=item.pk %}" class="dropdown-item">Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <!-- Create New -->
+    <div class=" create-profile-container">
+        <h1>Create New Profile</h1>
+        <form method="post" enctype="multipart/form-data" novalidate action="{% url 'Create_new' %}">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in form.visible_fields %}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:2 %}
+                        </div><div class="row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+            <!-- Button -->
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    {% endif %}
+ </div>
+{% endblock content %}

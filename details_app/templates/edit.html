@@ -1,25 +1,109 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
+<div class="edit container ">
+    <h1>Edit Profile</h1>
+    <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <!-- First Name and Last Name -->
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                    {{ form.first_name }}
+                    {% for error in form.first_name.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
 
-<div class="container pt-5">
-<form method="post" enctype="multipart/form-data" novalidate >
-    {% csrf_token %}
-    {% for field in form.visible_fields %} <!-- is used to iterate over all visible fields in the form.-->
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{field.label}}</label>
-            {{field}}
-            {% for error in field.errors %}
-                <span class="help-block" style="color:red">{{error}}</span>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                    {{ form.last_name }}
+                    {% for error in form.last_name.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Age and Phone -->
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.age.id_for_label }}">Age</label>
+                    {{ form.age }}
+                    {% for error in form.age.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.phone.id_for_label }}">Phone</label>
+                    {{ form.phone }}
+                    {% for error in form.phone.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Address and Email -->
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.address.id_for_label }}">Address</label>
+                    {{ form.address }}
+                    {% for error in form.address.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="{{ form.gmail.id_for_label }}">Email</label>
+                    {{ form.gmail }}
+                    {% for error in form.gmail.errors %}
+                        <span class="help-block text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                 <!-- Images -->
+        <div class="form-group mb-3">
+            <label for="{{ form.images.id_for_label }}">Upload New Image</label>
+            {{ form.images }}
+            {% for error in form.images.errors %}
+                <span class="help-block text-danger">{{ error }}</span>
             {% endfor %}
         </div>
-    {% endfor %}
-    <div>
-        <button type="submit" class="btn btn-success">Submit</button>
-        <a href="{% url 'detail_list' %}" class="btn btn-default">Cancel</a>
-    </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Display Current Image -->
+        {% if object.images %}
+        <div class="form-group mb-4">
+            <img src="{{ object.images.url }}" alt="Profile Image" class="img-thumbnail" style="width: 150px; height: 150px;">
+        </div>
+        {% endif %}
 
+            </div>
+        </div>
+        <!-- Submit and Cancel Buttons -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+            </div>
+            <div class="col-md-6 home-btn">
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary w-100">Cancel</a>
+            </div>
+        </div>
+    </form>
 </div>
-
-
 {% endblock content %}
