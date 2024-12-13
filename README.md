@@ -1,6 +1,10 @@
 # CRUD Operations - Django Project
 
-## Overview
+
+
+https://github.com/user-attachments/assets/58de9b4b-2e90-48cf-b5e4-472cd568adcb
+
+
 This project demonstrates a simple implementation of CRUD (Create, Read, Update, Delete) operations using Python Django, HTML, CSS, and Bootstrap 5. The application allows users to manage a collection of items, performing basic operations such as creating new items, viewing details, updating existing entries, and deleting records.
 
 ## Technologies Used
