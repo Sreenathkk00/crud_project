@@ -129,5 +129,5 @@ Open your web browser and navigate to http://localhost:8000 or http://127.0.0.1:
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 ### License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENCE).
 
